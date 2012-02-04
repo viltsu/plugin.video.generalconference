@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <string id='30020'>Video Quality</string> 
+  <string id='30021'>video-360p</string>
+  <string id='30022'>video-720p</string>
+  <string id='30023'>video-1080p</string>
+  <string id='30030'>Video Language</string>
+  <string id='30040'>Show only talks</string>
+  <string id='30101'>English</string>
+  <string id='30102'>Finnish</string>
+</strings>
