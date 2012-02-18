@@ -1,2 +1,5 @@
+Version 0.0.2
+* Optimazing and code overhaul
+
 Version 0.0.1
-inital
+* inital
