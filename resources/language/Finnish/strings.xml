@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<strings>
+  <string id='30001'>Toista kaikki</string>
+  <string id='30020'>Videon laatu</string> 
+  <string id='30021'>360p</string>
+  <string id='30022'>720p</string>
+  <string id='30023'>1080p</string>
+  <string id='30030'>Videon kieli</string>
+  <string id='30101'>englanti</string>
+  <string id='30102'>suomi</string>
+</strings>
