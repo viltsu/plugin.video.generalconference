@@ -1,3 +1,10 @@
+Version 0.1.0
+* Added cache
+* Reworked the code from ground up
+* Made the parsin with prute regular expression
+* Removed show only talks option
+* Added Finnish string.xml
+
 Version 0.0.2
 * Optimazing and code overhaul
 

@@ -1,19 +1,21 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <addon id="plugin.video.generalconference"
        name="LDS General Conferences"
-       version="0.0.2"
-       provider-name="Ville-Matti Riihikoski">
+       version="0.1.0"
+       provider-name="Ville-Matti Riihikoski[villematti.riihikoski@gmail.com]">
   <requires>
     <import addon="xbmc.python" version="2.0"/>
-	<import addon="script.module.beautifulsoup" version="3.0.8"/>
+    <import addon="script.common.plugin.cache" version="0.9.1"/>
   </requires>
-  <extension point="xbmc.python.pluginsource"
-            library="default.py">
-        <provides>video</provides>
+  <extension point="xbmc.python.pluginsource" library="addon.py">
+    <provides>video</provides>
   </extension>
   <extension point="xbmc.addon.metadata">
-    <summary>General Conferences</summary>
-    <description>General Conference videos from the church of Jesus Chirst of Latter Day Saints</description>
+    <summary lang="en">General Conferences</summary>
+    <description lang="en">General Conference videos from the church of Jesus Chirst of Latter Day Saints</description>
+    <summary lang="fi">Yleiskonferenssit</summary>
+    <description lang="fi">Myöhempien Aikojen Pyhien Jeesuksen Kristuksen kirkon yleiskonferenssi videot</description>
+    <license>GPL 2.0</license>
     <platform>all</platform>
   </extension>
 </addon>
