@@ -3,12 +3,16 @@ LDS General Conference plugin for XBMC
 
 With this pluging you can watch LDS [general conferences](http://www.lds.org/general-conference) which have been released on [lds.org](http://www.lds.org) website using [XBMC](http://xbmc.org/) program. 
 
+You can now watch older conferences also. In some of the conferences only some of the sessions are available in video formats (so only sessions with talks are shown in the lists). 
+
+If you see something you'd like to have in this plugin. Let me know what it is and I'll see if I can include it.
+
 This is **not** an official plugin by [The Church of Jesus Christ of Latter-day Saints (Mormons)](http://lds.org).
 
 To install
 -------
 1. Go to https://github.com/viltsu/plugin.video.generalconference/downloads
-2. Download newest package (currently plugin.video.generalconference-0.1.0.zip)
+2. Download newest package (currently plugin.video.generalconference-0.2.0.zip)
 3. Launch XBMC
 4. Follow [these instructions to install the plugin](http://wiki.xbmc.org/index.php?title=Add-ons#How_to_install_from_zip)
 
@@ -21,10 +25,6 @@ There is few options you can choose using the XMBC's plugin option menu.
 *Video Language* at the moment only finnish and english are supported, but if you'd like to get it on any other language available available on general conferences webpage let me know (add an issue) and I'll add it.
 
 *Show only talks* Songs are avalable only in english so this has effect only when that language is selected. When selected only talks are displayed in the menu.
-
-What's missing?
--------
-If you see something you'd like to have in this plugin. Let me know what it is and I'll see if I can include it.
 
 Developer
 -------
