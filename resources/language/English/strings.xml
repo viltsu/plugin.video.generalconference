@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <strings>
   <string id='30001'>Play all</string>
+  <string id='30002'>Watch Live</string>
   <string id='30020'>Video Quality</string> 
   <string id='30021'>360p</string>
   <string id='30022'>720p</string>

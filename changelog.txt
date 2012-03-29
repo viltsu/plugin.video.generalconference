@@ -1,3 +1,7 @@
+Version 0.2.0
+* Removed the limit for 6 conferences
+* Fixed isseu #2 (problem with finnish)
+
 Version 0.1.0
 * Added cache
 * Reworked the code from ground up
