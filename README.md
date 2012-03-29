@@ -22,6 +22,10 @@ There is few options you can choose using the XMBC's plugin option menu.
 
 *Show only talks* Songs are avalable only in english so this has effect only when that language is selected. When selected only talks are displayed in the menu.
 
+What's missing?
+-------
+If you see something you'd like to have in this plugin. Let me know what it is and I'll see if I can include it.
+
 Developer
 -------
 I'm a father of two young boys and a memeber of [The Church of Jesus Christ of Latter-day Saints](http://lds.org). At the moment I'm a student in the University of Helsinki (major in math). 
