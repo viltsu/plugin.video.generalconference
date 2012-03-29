@@ -20,11 +20,9 @@ Options
 -------
 There is few options you can choose using the XMBC's plugin option menu.
 
-*Video Quality* can be chosen from the three qualities available on the web site (360p, 720p and 1080p). Videos are streamed streight from the server so choose well based on you conection speed or you'll end up buffering from a loong time :)
+*Video Quality* can be chosen from the three qualities available on the web site (360p, 720p and 1080p). Videos are streamed streight from the server so choose well based on you conection speed or you'll end up buffering from a loong time. If no video with wanted format found then fallsback and tryes to use the one that is found (this is the case with some of the older conferences)
 
 *Video Language* at the moment only finnish and english are supported, but if you'd like to get it on any other language available available on general conferences webpage let me know (add an issue) and I'll add it.
-
-*Show only talks* Songs are avalable only in english so this has effect only when that language is selected. When selected only talks are displayed in the menu.
 
 Developer
 -------
