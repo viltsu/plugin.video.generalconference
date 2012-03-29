@@ -12,7 +12,7 @@ This is **not** an official plugin by [The Church of Jesus Christ of Latter-day 
 To install
 -------
 1. Go to https://github.com/viltsu/plugin.video.generalconference/downloads
-2. Download newest package (currently plugin.video.generalconference-0.2.0.zip)
+2. Download newest package (currently plugin.video.generalconference-0.2.1.zip)
 3. Launch XBMC
 4. Follow [these instructions to install the plugin](http://wiki.xbmc.org/index.php?title=Add-ons#How_to_install_from_zip)
 
