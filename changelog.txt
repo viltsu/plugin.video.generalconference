@@ -1,3 +1,6 @@
+Version 0.2.1
+* Removed cache from conference query
+
 Version 0.2.0
 * Removed the limit for 6 conferences
 * Fixed isseu #2 (problem with finnish)
