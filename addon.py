@@ -43,6 +43,12 @@ class conferenceAddon(object):
             title = year + ' ' + m.group(2)
             self._addDirectory(title, {'url' :confurl,  'cid':title})
         xbmcplugin.endOfDirectory(self.handle)
+    
+    def _search(self, needle, hay):
+        r = re.search(needle, hay)
+        if not r:
+            return None
+        return r.group(1)
 
     def showConference(self,  cid,  url):
         confurl = url
@@ -53,23 +59,19 @@ class conferenceAddon(object):
         for m in re.finditer("<table.*?<session value=\"([^\"]+)\">([^<]+)</session>(.*?)</table>", html):
             sessionHtml = m.group(3)
             speakers = []
-            for n in re.finditer("<tr.*?<span class=\"talk\"><a href.*?>([^<]+)</a></span>.*?<span class=\"speaker\">([^<]+)</span>.*?<li><a href=\"([^\?]+)\?download=true\" class=\""+self.videoq+"\".*?</tr>",  sessionHtml):
-                speakers.append((n.group(1) , n.group(2),  n.group(3))) #Topic, Speaker, videoUrl
-            if len(speakers) == 0: #try fallback if no match
-                for n in re.finditer("<tr.*?<span class=\"talk\"><a href.*?>([^<]+)</a></span>.*?<span class=\"speaker\">([^<]+)</span>.*?<li><a href=\"([^\?]+)\?download=true\" class=\"(video-360p|video-mp4|video-wmv)\".*?</tr>",  sessionHtml):
-                    speakers.append((n.group(1) , n.group(2),  n.group(3))) #Topic, Speaker, videoUrl
-            o = re.search("<td class=\"download\">(.*?)</td>", sessionHtml)
-            p = re.search("<a href=\"([^\"]+)\" class=\""+self.videoq+"\"", o.group(1))
-            if not p: #try fallback if no match
-                p = re.search("<a href=\"([^\"]+)\" class=\"(video-mp4|video-wmv)\"", o.group(1))
-            if not p:
-                allUrl = None
-            else:
-                allUrl = p.group(1)
-            if len(speakers) > 0:
+            for n in re.finditer("<span class=\"talk\"><a href[^>]+>([^<]+)</a></span>.*?<span class=\"speaker\">([^<]+)</span>.*?<div class=\"download-menu\">(.*?)</div>",  sessionHtml):                
+                videoUrl = self._search("<a href=\"([^\"]+)\" class=\""+self.videoq+"\"", n.group(3))
+                if not videoUrl: #try fallback if no match
+                    videoUrl = self._search("<a href=\"([^\"]+)\" class=\"(video-360p|video-mp4|video-wmv)\"", n.group(3))
+                if videoUrl:
+                    speakers.append((n.group(1) , n.group(2),  videoUrl)) #Topic, Speaker, videoUrl
+            part = self._search("<td class=\"download\">(.*?)</td>", sessionHtml)
+            allUrl = self._search("<a href=\"([^\"]+)\" class=\""+self.videoq+"\"", part)
+            if not allUrl: #try fallback if no match
+                allUrl = self._search("<a href=\"([^\"]+)\" class=\"(video-360p|video-mp4|video-wmv)\"", part)
+            if len(speakers) > 0 or allUrl != None:
                 store.append((m.group(1),  m.group(2),  speakers,  allUrl)) #Session Id, Session title, speakers, Play all url
         self.cache.set(cachekey,  repr(store))
-        
         for session, title, talks,  playallurl in store:
             self._addDirectory(title, {'cid':cid,  'sid':session})
         xbmcplugin.endOfDirectory(self.handle)
