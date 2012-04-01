@@ -1,3 +1,6 @@
+Version 0.2.3
+* Fixed 2012 sessions not shown
+
 Version 0.2.2
 * Fixed sessions not show if only play all available
 * Fixed wrong video playback on same rare cases

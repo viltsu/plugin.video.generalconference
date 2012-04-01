@@ -56,21 +56,23 @@ class conferenceAddon(object):
         store = self.cache.get(cachekey)
         html = self._downloadUrl(url).replace('\n', '')
         store = []
-        for m in re.finditer("<table.*?<session value=\"([^\"]+)\">([^<]+)</session>(.*?)</table>", html):
-            sessionHtml = m.group(3)
+        for m in re.finditer("<table class=\"sessions\" id=\"([^\"]+)\">(.*?)</table>", html):
+            sessionHtml = m.group(2)
+            sessionTitle = self._search("<session value=\"[^\"]+\">([^<]+)</session>", sessionHtml) or \
+                           self._search("<h2>([^<]+)</h2>", sessionHtml) or \
+                           "-"
             speakers = []
-            for n in re.finditer("<span class=\"talk\"><a href[^>]+>([^<]+)</a></span>.*?<span class=\"speaker\">([^<]+)</span>.*?<div class=\"download-menu\">(.*?)</div>",  sessionHtml):                
-                videoUrl = self._search("<a href=\"([^\"]+)\" class=\""+self.videoq+"\"", n.group(3))
-                if not videoUrl: #try fallback if no match
-                    videoUrl = self._search("<a href=\"([^\"]+)\" class=\"(video-360p|video-mp4|video-wmv)\"", n.group(3))
+            for n in re.finditer("<span class=\"talk\">(.*?)</span>.*?<span class=\"speaker\">([^<]+)</span>.*?<div class=\"download-menu\">(.*?)</div>",  sessionHtml):                
+                topic = self._search("<a href[^>]+>([^<]+)</a>", n.group(1)) or "-"
+                videoUrl = self._search("<a href=\"([^\"]+)\" class=\""+self.videoq+"\"", n.group(3)) or \
+                           self._search("<a href=\"([^\"]+)\" class=\"(video-360p|video-mp4|video-wmv)\"", n.group(3))
                 if videoUrl:
-                    speakers.append((n.group(1) , n.group(2),  videoUrl)) #Topic, Speaker, videoUrl
+                    speakers.append((topic, n.group(2), videoUrl)) #Topic, Speaker, videoUrl
             part = self._search("<td class=\"download\">(.*?)</td>", sessionHtml)
-            allUrl = self._search("<a href=\"([^\"]+)\" class=\""+self.videoq+"\"", part)
-            if not allUrl: #try fallback if no match
-                allUrl = self._search("<a href=\"([^\"]+)\" class=\"(video-360p|video-mp4|video-wmv)\"", part)
+            allUrl = self._search("<a href=\"([^\"]+)\" class=\""+self.videoq+"\"", part) or \
+                     self._search("<a href=\"([^\"]+)\" class=\"(video-360p|video-mp4|video-wmv)\"", part)
             if len(speakers) > 0 or allUrl != None:
-                store.append((m.group(1),  m.group(2),  speakers,  allUrl)) #Session Id, Session title, speakers, Play all url
+                store.append((m.group(1), sessionTitle, speakers, allUrl)) #Session Id, Session title, speakers, Play all url
         self.cache.set(cachekey,  repr(store))
         for session, title, talks,  playallurl in store:
             self._addDirectory(title, {'cid':cid,  'sid':session})
