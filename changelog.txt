@@ -1,3 +1,7 @@
+Verson 0.2.4
+* Added Portuguese
+* Code overhaul
+
 Version 0.2.3
 * Fixed 2012 sessions not shown
 

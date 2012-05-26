@@ -29,8 +29,8 @@ class conferenceAddon(object):
         self.fanart = os.path.join(addon.getAddonInfo('path'), 'fanart.jpg')
         self.cache = StorageServer.StorageServer(addon.getAddonInfo('id'), 24)
         self.videoq = ['video-360p', 'video-720p', 'video-1080p'][int(addon.getSetting('video_quality'))]
-        self.videol = ['eng', 'fin'][int(addon.getSetting('video_language'))]
-        self.last = [1995, 2011][int(addon.getSetting('video_language'))]
+        self.videol = ['eng', 'fin','por'][int(addon.getSetting('video_language'))]
+        self.last = [1995, 2011, 2011][int(addon.getSetting('video_language'))]
 
     def showConferences(self):
         html = self._downloadUrl(CONFERENCES_URL + self.videol)	        
