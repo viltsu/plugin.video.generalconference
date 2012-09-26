@@ -1,6 +1,7 @@
-Verson 0.2.4
-* Added Portuguese
-* Code overhaul
+Version 0.3.0
+* Added live (beta)
+* Fixed wrong titles in sunday afternoon sessions
+* Fixed syntax errors
 
 Version 0.2.3
 * Fixed 2012 sessions not shown
