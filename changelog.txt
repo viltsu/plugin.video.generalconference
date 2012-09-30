@@ -1,3 +1,6 @@
+Version 0.3.1
+* Took away the live feature
+
 Version 0.3.0
 * Added live (beta)
 * Fixed wrong titles in sunday afternoon sessions

@@ -38,7 +38,7 @@ class conferenceAddon(object):
         self.postData = os.path.join(addon.getAddonInfo('path'), 'resources', 'req')
 
     def showConferences(self):
-        self._addLink(self.localized(30002), {'live': 1})
+        # self._addLink(self.localized(30002), {'live': 1})
         html = self._downloadUrl(CONFERENCES_URL + self.videol)
         for m in re.finditer("<li><a href=\"http://www.lds.org/general-conference/sessions/([^\"]+)\">([^<]+)</a></li>", html):
             year = m.group(1)[0:4]
